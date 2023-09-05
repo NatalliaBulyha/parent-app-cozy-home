@@ -2,7 +2,6 @@ package com.cozyhome.onlineshop.reviewservice.controller;
 
 import com.cozyhome.onlineshop.reviewservice.dto.ReviewRequest;
 import com.cozyhome.onlineshop.reviewservice.dto.ReviewResponse;
-import com.cozyhome.onlineshop.reviewservice.model.Review;
 import com.cozyhome.onlineshop.reviewservice.service.ReviewService;
 import com.cozyhome.onlineshop.reviewservice.validation.ValidSkuCode;
 import lombok.RequiredArgsConstructor;
