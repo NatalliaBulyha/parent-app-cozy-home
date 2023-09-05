@@ -33,6 +33,11 @@ public class ReviewControllerImpl {
         return new ResponseEntity<>("Hi from controller!!", HttpStatus.OK);
     }
 
+    @GetMapping("/string22")
+    public ResponseEntity<String> getString2(@RequestParam String string) {
+        return new ResponseEntity<>("Hi from controller!! " + string, HttpStatus.OK);
+    }
+
     @PostMapping("/new")
     public ResponseEntity<ReviewResponse> saveReview(@RequestBody ReviewRequest review) {
         return new ResponseEntity<>(reviewService.saveReview(review), HttpStatus.CREATED);
