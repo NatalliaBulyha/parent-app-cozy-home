@@ -1,15 +1,15 @@
 version: '3.1'
 services:
   product-service:
-    build: ./product-service
+    image: cozyhomeimages/product-service:latest
     container_name: product-service
     environment:
       - SPRING_DATA_MONGODB_URI=mongodb+srv://user:egy4OdPi4Wyrm99k@cluster0.bgj8zvs.mongodb.net/product_db?retryWrites=true&w=majority
     ports:
-      - '8080:8080'
+      - '8081:8081'
 
   review-service:
-    build: ./review-service
+    image: cozyhomeimages/review-service:latest
     container_name: review-service
     ports:
       - '8083:8083'

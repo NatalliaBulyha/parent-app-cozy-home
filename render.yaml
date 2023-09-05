@@ -1,0 +1,4 @@
+services:
+  - name: my-app
+    dockerCompose:
+      path: ./docker-compose.yaml
