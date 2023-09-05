@@ -11,7 +11,7 @@ services:
   image: cozyhomeimages/review-service:latest
   env:
     - key: POSTGRES_URL
-      value: "jdbc:postgresql://us-east-1.b52152fa-97a4-4ebb-87be-812fdf65a3b0.aws.ybdb.io:5433/postgres?ssl=true&sslmode=verify-full&sslrootcert=/etc/secrets/root.crt"
+      value: "jdbc:postgresql://us-east-1.b52152fa-97a4-4ebb-87be-812fdf65a3b0.aws.ybdb.io:5433/postgres?ssl=true&sslmode=verify-full&sslrootcert=review-service/root.crt"
     - key: POSTGRES_USER
       value: "admin"
     - key: POSTGRES_PASSWORD

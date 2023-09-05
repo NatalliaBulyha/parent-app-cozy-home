@@ -1,0 +1,1 @@
+FROM cozyhomeimages/review-service:latest
