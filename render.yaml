@@ -25,4 +25,4 @@ services:
       - key: POSTGRES_PASSWORD
         value: reviewpass
     buildCommand: docker build -t combined-service -f ./Dockerfile .
-    startCommand: docker run -p 8080:8080 -p 8083:8083 combined-service
+    startCommand: docker run -p 8080:8080 -p 8083:8083 --network=container:postgres-db combined-service
