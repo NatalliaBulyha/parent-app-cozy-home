@@ -10,4 +10,4 @@ services:
       - key: POSTGRES_PASSWORD
         value: OqTSchvip_ZH-hz7YpYwVs6Wc_Mlij
     buildCommand: docker build -t combined-service -f ./Dockerfile .
-    startCommand: docker run -p 8080:8080 -p 8083:8083 -p 7000:7000 -p 9000:9000 combined-service
+    startCommand: docker run -p 8080:8080 -p 8083:8083 combined-service
