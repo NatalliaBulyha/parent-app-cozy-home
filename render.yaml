@@ -1,4 +1,28 @@
 services:
-  - name: my-app
-    dockerCompose:
-      path: ./docker-compose.yaml
+  - name: postgres-db
+    envVars:
+      - key: POSTGRES_DB
+        value: review-db
+      - key: POSTGRES_USER
+        value: review
+      - key: POSTGRES_PASSWORD
+        value: reviewpass
+    image:
+      repository: postgres:latest
+      tag: latest
+    ports:
+      - 5432:5432
+    useDockerNetwork: true
+
+  - name: combined-service
+    envVars:
+      - key: SPRING_DATA_MONGODB_URI
+        value: mongodb+srv://user:egy4OdPi4Wyrm99k@cluster0.bgj8zvs.mongodb.net/product_db?retryWrites=true&w=majority
+      - key: POSTGRES_URL
+        value: jdbc:postgresql://postgres-db:5432/review-db
+      - key: POSTGRES_USER
+        value: review
+      - key: POSTGRES_PASSWORD
+        value: reviewpass
+    buildCommand: docker build -t combined-service -f ./Dockerfile .
+    startCommand: docker run -p 8080:8080 -p 8083:8083 --network=container:postgres-db combined-service
