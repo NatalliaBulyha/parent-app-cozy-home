@@ -12,6 +12,7 @@ services:
       tag: latest
     ports:
       - 5432:5432
+    useDockerNetwork: true
 
   - name: combined-service
     envVars:
