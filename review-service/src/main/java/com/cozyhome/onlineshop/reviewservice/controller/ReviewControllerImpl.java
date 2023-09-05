@@ -20,7 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("${api.basePath}/review")
-public class ReviewControllerImpl implements ReviewController{
+public class ReviewControllerImpl {
 
     private final ReviewService reviewService;
 
