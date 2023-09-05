@@ -1,5 +1,5 @@
 services:
-  - name: my-combined-service
+  - name: combined-service
     envVars:
       - key: SPRING_DATA_MONGODB_URI
         value: mongodb+srv://user:egy4OdPi4Wyrm99k@cluster0.bgj8zvs.mongodb.net/product_db?retryWrites=true&w=majority
@@ -9,5 +9,5 @@ services:
         value: admin
       - key: POSTGRES_PASSWORD
         value: OqTSchvip_ZH-hz7YpYwVs6Wc_Mlij
-    buildCommand: docker build -t my-combined-service .
-    startCommand: docker run -p 8080:8080 -p 8083:8083 my-combined-service
+    buildCommand: docker build -t combined-service -f ./Dockerfile .
+    startCommand: docker run -p 8080:8080 -p 8083:8083 -p 7000:7000 -p 9000:9000 combined-service
