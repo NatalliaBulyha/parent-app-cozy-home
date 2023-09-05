@@ -1,18 +1,4 @@
 services:
-  - name: product-service
-    envVars:
-      - key: SPRING_DATA_MONGODB_URI
-        value: mongodb+srv://user:egy4OdPi4Wyrm99k@cluster0.bgj8zvs.mongodb.net/product_db?retryWrites=true&w=majority
-    buildCommand: docker build -t cozyhomeimages/product-service ./product-service
-    startCommand: docker run -p 8080:8080 cozyhomeimages/product-service
-
-  - name: review-service
-    envVars:
-      - key: POSTGRES_URL
-        value: jdbc:postgresql://us-east-1.b52152fa-97a4-4ebb-87be-812fdf65a3b0.aws.ybdb.io:5433/postgres?ssl=true&sslmode=verify-full&sslrootcert=/etc/secrets/root.crt
-      - key: POSTGRES_USER
-        value: admin
-      - key: POSTGRES_PASSWORD
-        value: OqTSchvip_ZH-hz7YpYwVs6Wc_Mlij
-    buildCommand: docker build -t cozyhomeimages/review-service ./review-service
-    startCommand: docker run -p 8083:8083 cozyhomeimages/review-service
+  - name: combined-service
+    buildCommand: docker build -t combined-service .
+    startCommand: docker run -p 8080:8080 -p 8083:8083 my-combined-service
