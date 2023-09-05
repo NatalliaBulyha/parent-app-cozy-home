@@ -11,11 +11,18 @@ services:
   review-service:
     build: ./review-service
     container_name: review-service
-    environment:
-      - POSTGRES_URL=jdbc:postgresql://us-east-1.b52152fa-97a4-4ebb-87be-812fdf65a3b0.aws.ybdb.io:5433/postgres?ssl=true&sslmode=verify-full&sslrootcert=review-service/root.crt
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=OqTSchvip_ZH-hz7YpYwVs6Wc_Mlij
     ports:
       - '8083:8083'
+    depends_on:
+      - postgres-db
+
+  postgres-db:
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_DB=review-db
+      - POSTGRES_USER=review
+      - POSTGRES_PASSWORD=reviewpass
 
 

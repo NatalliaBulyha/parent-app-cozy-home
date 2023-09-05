@@ -25,8 +25,8 @@ EXPOSE 8083
 EXPOSE 8080
 
 ENV SPRING_DATA_MONGODB_URI=mongodb+srv://user:egy4OdPi4Wyrm99k@cluster0.bgj8zvs.mongodb.net/product_db?retryWrites=true&w=majority
-ENV POSTGRES_URL=jdbc:postgresql://us-east-1.b52152fa-97a4-4ebb-87be-812fdf65a3b0.aws.ybdb.io:5433/postgres?ssl=true&sslmode=verify-full&sslrootcert=/etc/secrets/root.crt
-ENV POSTGRES_USER=admin
-ENV POSTGRES_PASSWORD=OqTSchvip_ZH-hz7YpYwVs6Wc_Mlij
+ENV POSTGRES_USER=review
+ENV POSTGRES_PASSWORD=reviewpass
+ENV POSTGRES_URL=jdbc:postgresql://postgres-db:5432/review-db
 
 CMD ["sh", "-c", "java -jar product-service.jar & java -jar review-service.jar"]
